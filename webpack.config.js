@@ -15,15 +15,15 @@ module.exports = {
             { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]}
         ]
     },
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     plugins: [
         new HtmlWebpackPlugin({
             template: 'app/index.html'
         }),
         new CopyPlugin([
-            { from: '_redirects' }
+            { from : '_redirects' }
         ])
     ],
-    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     devServer: {
         historyApiFallback: true
     }
